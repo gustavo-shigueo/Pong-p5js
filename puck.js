@@ -80,4 +80,33 @@ function puck() {
 
     }
 
+    this.future = function() {
+
+        if(this.xspeed > 0){
+
+            this.framecount = 0;
+            while(this.x + this.xspeed * this.framecount < right.xShow){
+
+                this.framecount++;
+
+            }
+            this.futurey = this.y;
+            this.yspeedcopy = this.yspeed;
+            for(i = 0; i < this.framecount; i++){
+    
+                this.futurey += this.yspeedcopy;
+                if ((this.futurey <= this.r && this.yspeedcopy < 0) || (this.futurey >= height - this.r && this.yspeedcopy > 0)){
+                    this.yspeedcopy *= -1;
+                }
+    
+            }
+
+        } else{
+
+            this.futurey = height / 2;
+
+        }
+
+    }
+
 }
