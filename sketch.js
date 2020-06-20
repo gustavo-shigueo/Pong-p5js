@@ -1,15 +1,12 @@
 var edge = false;
 var frames = 0;
 var digits = 1;
-var futureEval = false;
-var futurePos = 0; 
 function setup() {
 
     createCanvas(800, 450);
-    puck = new Puck();
+    puck = new puck();
     left = new paddle(true);
     right = new paddle(false);
-    future = new Future();
     leftScore = 0;
     rightScore = 0;
     puck.reset();
@@ -28,22 +25,19 @@ function draw() {
     left.show();
     right.show();
     if (!edge) {
-        left.update();
-        right.update();
-        
-        
-        puck.show();
-        puck.update();
-        futurePos = future.update();
-        if (futurePos + puck.r < right.ytop && right.ytop > 5) {
+        if (puck.ybottom < right.ytop && right.ytop > 5) {
             right.dir = -1;
-        } else if (futurePos - puck.r > right.ybottom && right.ybottom <= height - 5) {
+        } else if (puck.ytop > right.ybottom && right.ybottom <= height - 5) {
             right.dir = 1;
         } else {
             right.dir = 0;
         }
 
-        
+        left.update();
+        right.update();
+
+        puck.show();
+        puck.update();
 
         puck.checkPaddle(left, true);
         puck.checkPaddle(right, false);
