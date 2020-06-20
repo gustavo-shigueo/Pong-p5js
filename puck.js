@@ -22,6 +22,9 @@ function Puck() {
             this.l = true;
             futureEval = true;
         }
+        if(!futureEval){
+            futurePos = future.update();
+        }
 
     }
 
@@ -65,6 +68,7 @@ function Puck() {
 
             if (this.testx && this.testybottom && this.testytop) {
                 futureEval = false;
+                futurePos = future.update();
                 this.l = false;
                 this.xspeed = this.velocity * cos(this.hitAngle);
                 this.yspeed = this.velocity * sin(this.hitAngle);
