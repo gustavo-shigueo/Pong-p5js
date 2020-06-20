@@ -26,6 +26,9 @@ function Future() {
 
             }
             this.yfuture = this.ycurrent;
+            if(futureEval){
+                elipse(right.xShow, this.yfuture, 4,4);
+            }
             return this.yfuture;
 
         } else{
