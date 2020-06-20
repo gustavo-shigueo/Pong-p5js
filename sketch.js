@@ -39,11 +39,11 @@ function draw() {
         left.update();
         right.update();
         
-        futurePos = future.update();
         
         puck.show();
         puck.update();
-
+        
+        futurePos = future.update();
 
         puck.checkPaddle(left, true);
         puck.checkPaddle(right, false);
