@@ -2,6 +2,7 @@ var edge = false;
 var frames = 0;
 var digits = 1;
 var futureEval = false;
+var futurePos; 
 function setup() {
 
     createCanvas(800, 450);
