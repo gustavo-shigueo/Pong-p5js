@@ -26,8 +26,8 @@ function Puck() {
     this.update = function () {
         this.x += this.xspeed;
         this.y += this.yspeed;
-        //this.ytop = (this.y - this.r) + this.dificulty * this.yspeed;
-        //this.ybottom = (this.y + this.r) + this.dificulty * this.yspeed;
+        this.ytop = (this.y - this.r) + this.dificulty * this.yspeed;
+        this.ybottom = (this.y + this.r) + this.dificulty * this.yspeed;
     }
 
     this.show = function () {
@@ -58,13 +58,13 @@ function Puck() {
         this.diff = this.y - p.ytop;
         this.rad = 45 * PI / 180;
         this.hitAngle = map(this.diff, 0, p.h, -this.rad, this.rad);
-        this.yspeed = this.velocity * sin(this.hitAngle);
         if (isLeft && this.l) {
             this.testx = this.x - this.r <= p.xhit;
 
             if (this.testx && this.testybottom && this.testytop) {
                 this.l = false;
                 this.xspeed = this.velocity * cos(this.hitAngle);
+                this.yspeed = this.velocity * sin(this.hitAngle);
             }
         }
 
@@ -74,6 +74,7 @@ function Puck() {
             if (this.testx && this.testybottom && this.testytop) {
                 this.l = true;
                 this.xspeed = -this.velocity * cos(this.hitAngle);
+                this.yspeed = this.velocity * sin(this.hitAngle);
             }
         }
 
