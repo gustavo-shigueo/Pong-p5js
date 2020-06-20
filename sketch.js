@@ -9,7 +9,7 @@ function setup() {
     puck = new Puck();
     left = new paddle(true);
     right = new paddle(false);
-    future = new Future(right);
+    future = new Future();
     leftScore = 0;
     rightScore = 0;
     puck.reset();
@@ -39,7 +39,7 @@ function draw() {
         left.update();
         right.update();
         
-        //futurePos = future.update();
+        futurePos = future.update();
         
         puck.show();
         puck.update();

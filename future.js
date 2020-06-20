@@ -1,5 +1,4 @@
-function Future(p) {
-
+function Future() {
     
     this.update = function() {
         
