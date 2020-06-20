@@ -16,11 +16,9 @@ function Puck() {
         this.yspeed = this.velocity * Math.sin(this.angle);
 
         this.l = false;
-        futureEval = false;
         if (random(1) > 0.5) {
             this.xspeed *= -1;
             this.l = true;
-            futureEval = true;
         }
 
     }
@@ -28,8 +26,8 @@ function Puck() {
     this.update = function () {
         this.x += this.xspeed;
         this.y += this.yspeed;
-        this.ytop = futurePos - this.r;
-        this.ybottom = futurePos + this.r;
+        this.ytop = (this.y - this.r) + this.dificulty * this.yspeed;
+        this.ybottom = (this.y + this.r) + this.dificulty * this.yspeed;
     }
 
     this.show = function () {
@@ -66,7 +64,6 @@ function Puck() {
 
             if (this.testx && this.testybottom && this.testytop) {
                 this.l = false;
-                futureEval = false;
                 this.xspeed = this.velocity * cos(this.hitAngle);
             }
         }
