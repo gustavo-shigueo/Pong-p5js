@@ -1,4 +1,4 @@
-function puck() {
+function Puck() {
 
     this.r = 10;
     this.dificulty = 15;
@@ -16,9 +16,11 @@ function puck() {
         this.yspeed = this.velocity * Math.sin(this.angle);
 
         this.l = false;
+        futureEval = false;
         if (random(1) > 0.5) {
             this.xspeed *= -1;
             this.l = true;
+            futureEval = true;
         }
 
     }
@@ -26,8 +28,8 @@ function puck() {
     this.update = function () {
         this.x += this.xspeed;
         this.y += this.yspeed;
-        this.ytop = (this.y - this.r) + this.dificulty * this.yspeed;
-        this.ybottom = (this.y + this.r) + this.dificulty * this.yspeed;
+        this.ytop = futurePos - this.r;
+        this.ybottom = futurePos + this.r;
     }
 
     this.show = function () {
@@ -58,13 +60,14 @@ function puck() {
         this.diff = this.y - p.ytop;
         this.rad = 45 * PI / 180;
         this.hitAngle = map(this.diff, 0, p.h, -this.rad, this.rad);
+        this.yspeed = this.velocity * sin(this.hitAngle);
         if (isLeft && this.l) {
             this.testx = this.x - this.r <= p.xhit;
 
             if (this.testx && this.testybottom && this.testytop) {
                 this.l = false;
+                futureEval = false;
                 this.xspeed = this.velocity * cos(this.hitAngle);
-                this.yspeed = this.velocity * sin(this.hitAngle);
             }
         }
 
@@ -74,7 +77,6 @@ function puck() {
             if (this.testx && this.testybottom && this.testytop) {
                 this.l = true;
                 this.xspeed = -this.velocity * cos(this.hitAngle);
-                this.yspeed = this.velocity * sin(this.hitAngle);
             }
         }
 

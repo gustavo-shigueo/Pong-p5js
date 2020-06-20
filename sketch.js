@@ -1,13 +1,14 @@
 var edge = false;
 var frames = 0;
 var digits = 1;
+var futureEval = false;
 function setup() {
 
     createCanvas(800, 450);
-    puck = new puck();
+    puck = new Puck();
     left = new paddle(true);
     right = new paddle(false);
-    future = new Future();
+    future = new Future(right);
     leftScore = 0;
     rightScore = 0;
     puck.reset();
@@ -36,9 +37,12 @@ function draw() {
 
         left.update();
         right.update();
-
+        
+        futurePos = future.update();
+        
         puck.show();
         puck.update();
+
 
         puck.checkPaddle(left, true);
         puck.checkPaddle(right, false);
