@@ -7,6 +7,7 @@ function setup() {
     puck = new puck();
     left = new paddle(true);
     right = new paddle(false);
+    future = new Future();
     leftScore = 0;
     rightScore = 0;
     puck.reset();
