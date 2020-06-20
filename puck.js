@@ -64,6 +64,7 @@ function Puck() {
             this.testx = this.x - this.r <= p.xhit;
 
             if (this.testx && this.testybottom && this.testytop) {
+                futureEval = false;
                 this.l = false;
                 this.xspeed = this.velocity * cos(this.hitAngle);
                 this.yspeed = this.velocity * sin(this.hitAngle);
