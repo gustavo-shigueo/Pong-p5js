@@ -103,7 +103,7 @@ function puck() {
 
         } else{
 
-            this.futurey = height / 2 + right.h;
+            this.futurey = height / 2 + right.h / 2;
 
         }
 
