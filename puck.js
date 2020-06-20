@@ -1,4 +1,4 @@
-function puck() {
+function Puck() {
 
     this.r = 10;
     this.dificulty = 15;
