@@ -57,15 +57,15 @@ function Puck() {
     }
 
     this.checkPaddle = function (p, isLeft) {
-        this.testytop = this.y - this.r < p.ybottom;
-        this.testybottom = this.y + this.r > p.ytop;
-
+        
         this.diff = this.y - p.ytop;
         this.rad = 45 * PI / 180;
         this.hitAngle = map(this.diff, 0, p.h, -this.rad, this.rad);
         if (isLeft && this.l) {
+            this.testytop = this.y - this.r < p.ybottom;
+            this.testybottom = this.y + this.r > p.ytop;
             this.testx = this.x - this.r <= p.xhit;
-
+            
             if (this.testx && this.testybottom && this.testytop) {
                 futureEval = false;
                 futurePos = future.update();
@@ -74,9 +74,11 @@ function Puck() {
                 this.yspeed = this.velocity * sin(this.hitAngle);
             }
         }
-
+        
         else if (!isLeft && !this.l) {
             this.testx = this.x + this.r >= p.xShow;
+            this.testytop = this.y - this.r < this.ybottom;
+            this.testybottom = this.y + this.r > this.ytop;
 
             if (this.testx && this.testybottom && this.testytop) {
                 this.l = true;
