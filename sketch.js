@@ -37,7 +37,7 @@ function draw() {
         futurePos = future.update();
         if (futurePos + puck.r < right.ytop && right.ytop > 5) {
             right.dir = -1;
-        } else if (futurePos + puck.r > right.ybottom && right.ybottom <= height - 5) {
+        } else if (futurePos - puck.r > right.ybottom && right.ybottom <= height - 5) {
             right.dir = 1;
         } else {
             right.dir = 0;
