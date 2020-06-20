@@ -1,18 +1,18 @@
 function Future(p) {
 
-    this.xcurrent = puck.x + puck.r;
-    this.ycurrent = puck.y;
-    this.xpeed = puck.xspeed;
-    this.yspeedcurrent;
     
-    this.yfuture;
     this.update = function() {
         
         if(puck.xpeed > 0 && !futureEval) {
-
+            
+            this.xcurrent = puck.x + puck.r;
+            this.xpeed = puck.xspeed;
+            this.yfuture = null;
             futureEval = true;
+            this.ycurrent = puck.y;
             this.framecount = 0;
             this.xpeed = puck.xpeed;
+            this.yspeedcurrent = puck.yspeed;
             while(this.x + this.framecount * this.xspeed < right.xShow){
             
                 this.framecount++;
