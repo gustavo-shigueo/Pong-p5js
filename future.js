@@ -2,7 +2,7 @@ function Future() {
     
     this.update = function() {
         
-        if(puck.xspeed > 0){// && !futureEval) {
+        if(puck.xspeed > 0 && !futureEval) {
             
             this.xcurrent = puck.x + puck.r;
             this.xpeed = puck.xspeed;
