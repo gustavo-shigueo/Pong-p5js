@@ -2,7 +2,7 @@ function Future(p) {
 
     this.xcurrent = puck.x + puck.r;
     this.ycurrent = puck.y;
-    
+    this.xpeed = puck.xspeed;
     this.yspeedcurrent;
     
     this.yfuture;
@@ -13,7 +13,7 @@ function Future(p) {
             futureEval = true;
             this.framecount = 0;
             this.xpeed = puck.xpeed;
-            while(this.x + this.framecount * puck.xspeed < right.xShow){
+            while(this.x + this.framecount * this.xspeed < right.xShow){
             
                 this.framecount++;
             
