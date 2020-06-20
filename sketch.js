@@ -13,7 +13,7 @@ function setup() {
     leftScore = 0;
     rightScore = 0;
     puck.reset();
-    frameRate(5);
+    frameRate(60);
 
 }
 
