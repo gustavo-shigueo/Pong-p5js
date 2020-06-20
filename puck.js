@@ -26,8 +26,8 @@ function Puck() {
     this.update = function () {
         this.x += this.xspeed;
         this.y += this.yspeed;
-        this.ytop = (this.y - this.r) + this.dificulty * this.yspeed;
-        this.ybottom = (this.y + this.r) + this.dificulty * this.yspeed;
+        //this.ytop = (this.y - this.r) + this.dificulty * this.yspeed;
+        //this.ybottom = (this.y + this.r) + this.dificulty * this.yspeed;
     }
 
     this.show = function () {
