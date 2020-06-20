@@ -30,7 +30,7 @@ function Future() {
 
         } else{
 
-            return (height / 2);
+            return futurePos;
 
         }
         
