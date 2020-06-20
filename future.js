@@ -26,7 +26,7 @@ function Future() {
 
             }
             this.yfuture = this.ycurrent;
-            if(futureEval){
+            if(!futureEval){
                 circle(right.xShow, this.yfuture, 4,4);
             }
             return this.yfuture;
