@@ -1,4 +1,4 @@
-var edge = false;
+var edge = true;
 var frames = 0;
 var digits = 1;
 function setup() {
