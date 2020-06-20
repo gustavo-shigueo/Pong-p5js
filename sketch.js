@@ -28,6 +28,12 @@ function draw() {
     left.show();
     right.show();
     if (!edge) {
+        left.update();
+        right.update();
+        
+        
+        puck.show();
+        puck.update();
         futurePos = future.update();
         if (futurePos + puck.r < right.ytop && right.ytop > 5) {
             right.dir = -1;
@@ -37,12 +43,6 @@ function draw() {
             right.dir = 0;
         }
 
-        left.update();
-        right.update();
-        
-        
-        puck.show();
-        puck.update();
         
 
         puck.checkPaddle(left, true);
