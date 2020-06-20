@@ -31,8 +31,8 @@ function Puck() {
     this.update = function () {
         this.x += this.xspeed;
         this.y += this.yspeed;
-        this.ytop = futurePos - this.r;
-        this.ybottom = futurePos + this.r;
+        this.ytop = futurePos - right.ytop;
+        this.ybottom = futurePos + right.ybottom;
     }
 
     this.show = function () {
