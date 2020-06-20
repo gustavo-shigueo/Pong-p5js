@@ -28,7 +28,7 @@ function draw() {
     left.show();
     right.show();
     if (!edge) {
-        if (futurePos + puck.r < right.ytop && right.ytop > 5) {
+        if (futurePos - puck.r < right.ytop && right.ytop > 5) {
             right.dir = -1;
         } else if (futurePos + puck.r > right.ybottom && right.ybottom <= height - 5) {
             right.dir = 1;

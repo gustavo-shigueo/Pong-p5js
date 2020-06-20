@@ -1,4 +1,4 @@
-function Puck() {
+function puck() {
 
     this.r = 10;
     this.dificulty = 15;
@@ -16,14 +16,9 @@ function Puck() {
         this.yspeed = this.velocity * Math.sin(this.angle);
 
         this.l = false;
-        futureEval = false;
         if (random(1) > 0.5) {
             this.xspeed *= -1;
             this.l = true;
-            futureEval = true;
-        }
-        if(!futureEval){
-            futurePos = future.update();
         }
 
     }
@@ -31,8 +26,8 @@ function Puck() {
     this.update = function () {
         this.x += this.xspeed;
         this.y += this.yspeed;
-        this.ytop = futurePos - right.ytop;
-        this.ybottom = futurePos + right.ybottom;
+        this.ytop = (this.y - this.r) + this.dificulty * this.yspeed;
+        this.ybottom = (this.y + this.r) + this.dificulty * this.yspeed;
     }
 
     this.show = function () {
@@ -57,34 +52,29 @@ function Puck() {
     }
 
     this.checkPaddle = function (p, isLeft) {
-        
+        this.testytop = this.y - this.r < p.ybottom;
+        this.testybottom = this.y + this.r > p.ytop;
+
         this.diff = this.y - p.ytop;
         this.rad = 45 * PI / 180;
         this.hitAngle = map(this.diff, 0, p.h, -this.rad, this.rad);
         if (isLeft && this.l) {
-            this.testytop = this.y - this.r < p.ybottom;
-            this.testybottom = this.y + this.r > p.ytop;
             this.testx = this.x - this.r <= p.xhit;
-            
+
             if (this.testx && this.testybottom && this.testytop) {
-                futureEval = false;
-                futurePos = future.update();
                 this.l = false;
                 this.xspeed = this.velocity * cos(this.hitAngle);
                 this.yspeed = this.velocity * sin(this.hitAngle);
             }
         }
-        
+
         else if (!isLeft && !this.l) {
             this.testx = this.x + this.r >= p.xShow;
-            this.testytop = this.y - this.r < this.ybottom;
-            this.testybottom = this.y + this.r > this.ytop;
 
             if (this.testx && this.testybottom && this.testytop) {
                 this.l = true;
                 this.xspeed = -this.velocity * cos(this.hitAngle);
                 this.yspeed = this.velocity * sin(this.hitAngle);
-                futureEval = true;
             }
         }
 
