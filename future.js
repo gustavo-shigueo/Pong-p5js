@@ -21,7 +21,7 @@ function Future(p) {
             for(i = 0; i < this.framecount; i++){
 
                 this.ycurrent += this.yspeedcurrent;
-                if((this.ycurrent >= height - puck.r && this.yspeedcurrent > 0) || (this.ycurrent <= puck.r && this.yspeedcurrent < 0){
+                if((this.ycurrent >= height - puck.r && this.yspeedcurrent > 0) || (this.ycurrent <= puck.r && this.yspeedcurrent < 0)){
                     this.yspeedcurrent *= -1;
                 }
 
