@@ -38,7 +38,7 @@ function draw() {
         left.update();
         right.update();
         
-        futurePos = future.update();
+        //futurePos = future.update();
         
         puck.show();
         puck.update();
