@@ -1,7 +1,6 @@
 function puck() {
 
     this.r = 10;
-    this.dificulty = 15;
     this.velocity = 10;
 
     this.reset = function () {
@@ -21,8 +20,8 @@ function puck() {
     this.update = function () {
         this.x += this.xspeed;
         this.y += this.yspeed;
-        this.ytop = (this.y - this.r) + this.dificulty * this.yspeed;
-        this.ybottom = (this.y + this.r) + this.dificulty * this.yspeed;
+        this.ytop = (this.y - this.r) + this.yspeed;
+        this.ybottom = (this.y + this.r) + this.yspeed;
     }
 
     this.show = function () {
