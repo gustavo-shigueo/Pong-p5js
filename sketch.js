@@ -89,8 +89,9 @@ function keyPressed() {
             text("Paused - press ESC to continue", width / 2, height / 2);
             // draw();
             pop();
-        }
-        pause ? noLoop() : loop();
+            noLoop();
+        } else loop();
+        // pause ? noLoop() : loop();
     }
 }
 
