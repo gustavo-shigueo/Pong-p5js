@@ -83,7 +83,14 @@ function keyPressed() {
     else if (keyCode === ESCAPE){
         pause ? loop() : noLoop();
         pause = !pause;
-        if (pause) text("Paused - press ESC to continue", width / 2, height / 2);
+        if (pause) {
+            push();
+            textSize(48);
+            translate(width / 2, height / 2);
+            fill(255);
+            text("Paused - press ESC to continue", width / 2, height / 2);
+            pop();
+        }
     }
 }
 
