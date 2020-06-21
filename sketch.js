@@ -81,7 +81,7 @@ function keyPressed() {
     else if ((key == 's' || key == 'S' || keyCode === DOWN_ARROW) && left.ybottom <= height - 5) 
     left.dir = 1;
     else if (keyCode === ESCAPE){
-        pause = (!pause);
+        pause = (pause) ? false : true;
         if (pause){
             push();
             textSize(48);
