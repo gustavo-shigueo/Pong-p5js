@@ -81,17 +81,8 @@ function keyPressed() {
     else if ((key == 's' || key == 'S' || keyCode === DOWN_ARROW) && left.ybottom <= height - 5) 
     left.dir = 1;
     else if (keyCode === ESCAPE){
-        pause = (pause) ? false : true;
-        if (pause){
-            push();
-            textSize(48);
-            fill(255);
-            text("Paused - press ESC to continue", 0, height / 2);
-            // draw();
-            pop();
-            noLoop();
-        } else loop();
-        // pause ? noLoop() : loop();
+        pause = !pause;
+        pause ? noLoop() : loop();
     }
 }
 
