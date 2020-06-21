@@ -69,6 +69,15 @@ function draw() {
         }
 
     }
+    if (pause){
+        push();
+        textSize(48);
+        translate(width / 2, height / 2);
+        fill(255);
+        text("Paused - press ESC to continue", width / 2, height / 2);
+        draw();
+        pop();
+    }
     while(Math.floor(rightScore / Math.pow(10,  digits)) >= 1) digits++;
     textSize(32);
     text(leftScore, 20, 40);
@@ -83,14 +92,6 @@ function keyPressed() {
     else if (keyCode === ESCAPE){
         pause ? loop() : noLoop();
         pause = !pause;
-        if (pause) {
-            push();
-            textSize(48);
-            translate(width / 2, height / 2);
-            fill(255);
-            text("Paused - press ESC to continue", width / 2, height / 2);
-            pop();
-        }
     }
 }
 
