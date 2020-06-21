@@ -86,7 +86,7 @@ function keyPressed() {
             push();
             textSize(48);
             fill(255);
-            text("Paused - press ESC to continue", width / 2, height / 2);
+            text("Paused - press ESC to continue", 0, height / 2);
             // draw();
             pop();
             noLoop();
