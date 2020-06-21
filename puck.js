@@ -33,9 +33,9 @@ function puck() {
         if ((this.y <= this.r && this.yspeed < 0) || (this.y >= height - this.r && this.yspeed > 0))
             this.yspeed *= -1;
         if (this.x < this.r || this.x > width) edge = true;
-        if (edge) this.reset();
         if (this.x < this.r) rightScore++;
         if (this.x > width) leftScore++;
+        if (edge) this.reset();
     }
 
     this.checkPaddle = function (p, isLeft) {
