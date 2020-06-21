@@ -14,11 +14,8 @@ function puck() {
         this.xspeed = this.velocity * Math.cos(this.angle);
         this.yspeed = this.velocity * Math.sin(this.angle);
 
-        this.l = false;
-        if (random(1) > 0.5) {
-            this.xspeed *= -1;
-            this.l = true;
-        }
+        this.l = (random(1) > 0.5);
+        if(this.l) this.xspeed *= -1;
     }
 
     this.update = function () {
@@ -87,9 +84,8 @@ function puck() {
                     this.yspeedcopy *= -1;
             }
         } else{
-            if (right.ybottom < height / 2 + right.h / 2) 
-                this.futurey = height / 2 + right.h / 2;
-            else this.futurey = height / 2 - right.h / 2;
+            this.times = (right.ybottom < height / 2 + right.h / 2) ? 1 : -1;
+            this.futurey = height / 2 + ((this.times * right.h) / 2);
         }
     }
 }
