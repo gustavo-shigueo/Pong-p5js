@@ -1,6 +1,7 @@
 var edge = true;
 var frames = 0;
 var digits = 1;
+var pause = false;
 function setup() {
 
     createCanvas(800, 450);
@@ -27,13 +28,10 @@ function draw() {
     if (!edge) {
 
         puck.future();
-        if (puck.futurey + puck.r < right.ytop && right.ytop > 5) {
-            right.dir = -1;
-        } else if (puck.futurey - puck.r > right.ybottom && right.ybottom <= height - 5) {
-            right.dir = 1;
-        } else {
-            right.dir = 0;
-        }
+
+        if (puck.futurey + puck.r < right.ytop && right.ytop > 5) right.dir = -1;
+        else if (puck.futurey - puck.r > right.ybottom && right.ybottom <= height - 5) right.dir = 1;
+        else right.dir = 0;
 
         left.update();
         right.update();
@@ -71,25 +69,24 @@ function draw() {
         }
 
     }
-    while(Math.floor(rightScore / Math.pow(10,  digits)) >= 1){
-        digits++;
-    }
+    while(Math.floor(rightScore / Math.pow(10,  digits)) >= 1) digits++;
     textSize(32);
     text(leftScore, 20, 40);
     text(rightScore, width - 20 - (digits * 16), 40);
-
+    
 }
 
 function keyPressed() {
-    if ((key == 'w' || key == 'W' || keyCode === UP_ARROW) && left.ytop > 5) {
-        left.dir = -1;
-    } else if ((key == 's' || key == 'S' || keyCode === DOWN_ARROW) && left.ybottom <= height - 5) {
-        left.dir = 1;
+    if ((key == 'w' || key == 'W' || keyCode === UP_ARROW) && left.ytop > 5) left.dir = -1;
+    else if ((key == 's' || key == 'S' || keyCode === DOWN_ARROW) && left.ybottom <= height - 5) 
+    left.dir = 1;
+    else if (keyCode === ESCAPE){
+        pause = !pause;
+        pause ? noLoop() : loop();
     }
 }
 
 function keyReleased() {
-    if (key == 'w' || key == 'W' || key == 's' || key == 'S' || keyCode === UP_ARROW || keyCode === DOWN_ARROW) {
-        left.dir = 0;
-    }
+    if (key == 'w' || key == 'W' || key == 's' || key == 'S' || keyCode === UP_ARROW || keyCode === DOWN_ARROW)
+    left.dir = 0;
 }
