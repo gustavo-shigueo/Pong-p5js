@@ -91,7 +91,7 @@ function keyPressed() {
             draw();
             pop();
         }
-        pause ? loop() : noLoop();
+        pause ? noLoop() : loop();
     }
 }
 
