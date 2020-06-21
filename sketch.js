@@ -1,6 +1,7 @@
 var edge = true;
 var frames = 0;
 var digits = 1;
+var pause = false;
 function setup() {
 
     createCanvas(800, 450);
@@ -85,6 +86,9 @@ function keyPressed() {
         left.dir = -1;
     } else if ((key == 's' || key == 'S' || keyCode === DOWN_ARROW) && left.ybottom <= height - 5) {
         left.dir = 1;
+    } else if (keyCode === ESC){
+        pause ? loop() : noLoop();
+        pause = !pause;
     }
 }
 

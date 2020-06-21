@@ -5,7 +5,6 @@ function puck() {
     this.velocity = 10;
 
     this.reset = function () {
-
         this.x = Math.floor(width / 2);
         this.y = Math.floor(height / 2);
 
@@ -20,7 +19,6 @@ function puck() {
             this.xspeed *= -1;
             this.l = true;
         }
-
     }
 
     this.update = function () {
@@ -59,54 +57,39 @@ function puck() {
         this.hitAngle = map(this.diff, 0, p.h, -this.rad, this.rad);
         if (isLeft && this.l) {
             this.testx = this.x - this.r <= p.xhit;
-
             if (this.testx && this.testybottom && this.testytop) {
                 this.l = false;
                 this.xspeed = this.velocity * cos(this.hitAngle);
                 this.yspeed = this.velocity * sin(this.hitAngle);
             }
-        }
-
-        else if (!isLeft && !this.l) {
+        } else if (!isLeft && !this.l) {
             this.testx = this.x + this.r >= p.xShow;
-
             if (this.testx && this.testybottom && this.testytop) {
                 this.l = true;
                 this.xspeed = -this.velocity * cos(this.hitAngle);
                 this.yspeed = this.velocity * sin(this.hitAngle);
             }
         }
-
     }
 
     this.future = function() {
 
         if(this.xspeed > 0){
-
             this.framecount = 0;
             while(this.x + this.xspeed * this.framecount < right.xShow){
-
                 this.framecount++;
-
             }
             this.futurey = this.y;
             this.yspeedcopy = this.yspeed;
             for(i = 0; i < this.framecount; i++){
-    
                 this.futurey += this.yspeedcopy;
                 if ((this.futurey <= this.r && this.yspeedcopy < 0) || (this.futurey >= height - this.r && this.yspeedcopy > 0))
                     this.yspeedcopy *= -1;
-    
             }
-
         } else{
-
             if (right.ybottom < height / 2 + right.h / 2) 
                 this.futurey = height / 2 + right.h / 2;
             else this.futurey = height / 2 - right.h / 2;
-
         }
-
     }
-
 }
