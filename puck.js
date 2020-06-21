@@ -72,9 +72,7 @@ function puck() {
 
         if(this.xspeed > 0){
             this.framecount = 0;
-            while(this.x + this.xspeed * this.framecount < right.xShow){
-                this.framecount++;
-            }
+            while(this.x + this.xspeed * this.framecount < right.xShow) this.framecount++;
             this.futurey = this.y;
             this.yspeedcopy = this.yspeed;
             for(i = 0; i < this.framecount; i++){
