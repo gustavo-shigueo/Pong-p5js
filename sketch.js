@@ -82,16 +82,16 @@ function draw() {
     textSize(32);
     text(leftScore, 20, 40);
     text(rightScore, width - 20 - (digits * 16), 40);
-
+    
 }
 
 function keyPressed() {
     if ((key == 'w' || key == 'W' || keyCode === UP_ARROW) && left.ytop > 5) left.dir = -1;
     else if ((key == 's' || key == 'S' || keyCode === DOWN_ARROW) && left.ybottom <= height - 5) 
-        left.dir = 1;
+    left.dir = 1;
     else if (keyCode === ESCAPE){
-        pause ? loop() : noLoop();
         pause = !pause;
+        pause ? loop() : noLoop();
     }
 }
 
