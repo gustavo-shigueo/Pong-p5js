@@ -85,9 +85,8 @@ function keyPressed() {
         if (pause){
             push();
             textSize(48);
-            translate(width / 2, height / 2);
             fill(255);
-            text("Paused - press ESC to continue", 0, 0);
+            text("Paused - press ESC to continue", width / 2, height / 2);
             draw();
             pop();
         }
