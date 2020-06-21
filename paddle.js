@@ -26,9 +26,7 @@ function paddle(isLeft) {
         this.y += this.speed * this.dir;
         this.ytop = (this.y - this.h) / 2;
         this.ybottom = (this.y + this.h) / 2;
-        if (this.ybottom > height - 5 || this.ytop < 5) {
-            this.dir = 0;
-        }
+        if (this.ybottom > height - 5 || this.ytop < 5) this.dir = 0;
     }
 
 }

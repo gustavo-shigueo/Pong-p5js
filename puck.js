@@ -36,9 +36,8 @@ function puck() {
     }
 
     this.edges = function () {
-        if ((this.y <= this.r && this.yspeed < 0) || (this.y >= height - this.r && this.yspeed > 0)) {
+        if ((this.y <= this.r && this.yspeed < 0) || (this.y >= height - this.r && this.yspeed > 0))
             this.yspeed *= -1;
-        }
         if (this.x < this.r) {
             rightScore++;
             edge = true;
@@ -95,22 +94,16 @@ function puck() {
             for(i = 0; i < this.framecount; i++){
     
                 this.futurey += this.yspeedcopy;
-                if ((this.futurey <= this.r && this.yspeedcopy < 0) || (this.futurey >= height - this.r && this.yspeedcopy > 0)){
+                if ((this.futurey <= this.r && this.yspeedcopy < 0) || (this.futurey >= height - this.r && this.yspeedcopy > 0))
                     this.yspeedcopy *= -1;
-                }
     
             }
 
         } else{
 
-            if (right.ybottom < height / 2 + right.h / 2){
-            
+            if (right.ybottom < height / 2 + right.h / 2) 
                 this.futurey = height / 2 + right.h / 2;
-            } else{
-                
-                this.futurey = height / 2 - right.h / 2;
-                
-            }
+            else this.futurey = height / 2 - right.h / 2;
 
         }
 
