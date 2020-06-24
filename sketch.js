@@ -1,7 +1,7 @@
-var edge = true;
-var frames = 0;
-var digits = 1;
-var pause = false;
+let edge = true;
+let frames = 0;
+let digits = 1;
+let pause = false;
 function setup() {
 
     createCanvas(800, 450);
@@ -33,8 +33,8 @@ function draw() {
         if (goingUP) left.dir = -1;
         if (goingDOWN) left.dir = 1;
         if (stopped) left.dir = 0;
+        
         puck.future();
-
         if (puck.futurey + puck.r < right.ytop && right.ytop > 5) right.dir = -1;
         else if (puck.futurey - puck.r > right.ybottom && right.ybottom <= height - 5) right.dir = 1;
         else right.dir = 0;
