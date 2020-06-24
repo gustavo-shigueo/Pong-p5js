@@ -27,6 +27,11 @@ function draw() {
     right.show();
     if (!edge) {
 
+        if ((keyIsDown === UP_ARROW || keyIsDown == 'W' || keyIsDown == 'w') && left.ytop > 5)
+            left.dir = -1;
+        if ((keyIsDown === DOWN_ARROW || keyIsDown == 'S' || keyIsDown == 's') && left.ybottom <= height - 5)
+            left.dir = 1;
+
         puck.future();
 
         if (puck.futurey + puck.r < right.ytop && right.ytop > 5) right.dir = -1;
@@ -77,16 +82,8 @@ function draw() {
 }
 
 function keyPressed() {
-    if ((key == 'w' || key == 'W' || keyCode === UP_ARROW) && left.ytop > 5) left.dir = -1;
-    else if ((key == 's' || key == 'S' || keyCode === DOWN_ARROW) && left.ybottom <= height - 5) 
-    left.dir = 1;
-    else if (keyCode === ESCAPE){
+    if (keyCode === ESCAPE){
         pause = !pause;
         pause ? noLoop() : loop();
     }
-}
-
-function keyReleased() {
-    if (key == 'w' || key == 'W' || key == 's' || key == 'S' || keyCode === UP_ARROW || keyCode === DOWN_ARROW)
-    left.dir = 0;
 }
