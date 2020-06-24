@@ -30,16 +30,15 @@ function draw() {
         const goingUP = ((keyIsDown(UP_ARROW) || keyIsDown('W') || keyIsDown('w')) && left.ytop > 5);
         const goingDOWN = ((keyIsDown(DOWN_ARROW) || keyIsDown('S') || keyIsDown('s')) && left.ybottom <= height - 5);
         const stopped = !(goingUP || goingDOWN);
-        if (goingUP) left.dir = -1;
-        if (goingDOWN) left.dir = 1;
-        if (stopped) left.dir = 0;
+        if (goingUP) left.update(-1);
+        if (goingDOWN) left.update(1);
+        if (stopped) left.update(0);
         
         puck.future();
-        if (puck.futurey + puck.r < right.ytop && right.ytop > 5) right.dir = -1;
-        else if (puck.futurey - puck.r > right.ybottom && right.ybottom <= height - 5) right.dir = 1;
-        else right.dir = 0;
+        if (puck.futurey + puck.r < right.ytop && right.ytop > 5) right.update(-1);
+        else if (puck.futurey - puck.r > right.ybottom && right.ybottom <= height - 5) right.update(1);
+        else right.update(0);
 
-        left.update();
         right.update();
 
         puck.show();
