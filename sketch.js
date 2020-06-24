@@ -27,9 +27,9 @@ function draw() {
     right.show();
     if (!edge) {
 
-        if ((keyIsDown === UP_ARROW || keyIsDown == 'W' || keyIsDown == 'w') && left.ytop > 5)
+        if ((keyIsDown(UP_ARROW) || keyIsDown('W') || keyIsDown('w')) && left.ytop > 5)
             left.dir = -1;
-        if ((keyIsDown === DOWN_ARROW || keyIsDown == 'S' || keyIsDown == 's') && left.ybottom <= height - 5)
+        if ((keyIsDown(DOWN_ARROW) || keyIsDown('S') || keyIsDown('s')) && left.ybottom <= height - 5)
             left.dir = 1;
 
         puck.future();
