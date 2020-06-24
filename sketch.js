@@ -27,11 +27,12 @@ function draw() {
     right.show();
     if (!edge) {
 
-        if ((keyIsDown(UP_ARROW) || keyIsDown('W') || keyIsDown('w')) && left.ytop > 5)
-            left.dir = -1;
-        if ((keyIsDown(DOWN_ARROW) || keyIsDown('S') || keyIsDown('s')) && left.ybottom <= height - 5)
-            left.dir = 1;
-
+        const goingUP = ((keyIsDown(UP_ARROW) || keyIsDown('W') || keyIsDown('w')) && left.ytop > 5);
+        const goingDOWN = ((keyIsDown(DOWN_ARROW) || keyIsDown('S') || keyIsDown('s')) && left.ybottom <= height - 5);
+        const stopped = !(goingUP || goingDOWN);
+        if (goingUP) left.dir = -1;
+        if (goingDOWN) left.dir = 1;
+        if (stopped) left.dir = 0;
         puck.future();
 
         if (puck.futurey + puck.r < right.ytop && right.ytop > 5) right.dir = -1;
